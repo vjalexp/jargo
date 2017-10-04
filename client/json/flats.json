@@ -1,0 +1,92 @@
+[
+  {
+    "flat_id": 1,
+    "flat_address": "Комендантский",
+    "flat_type": "studio",
+	"flat_price": "2675000",
+    "rooms_quantity": "1",
+    "flat_description": "Продам квартиру-студию в уже построенном доме. Срок сдачи - 1 квартал 2018 года! Квартира квадратной формы с двумя окнами и большим балконом. Качественная отделка от зайстройщика (темного цвета). Благоустроенная территория с детскими площадками, малыми архитектурными формами, высоким коэффициентом озеленения. Планируется развитая инфраструктура с детскими садами, школами , магазинами. Метро Комендантский проспект - 7 минут транспортом, удобный выезд на КАД, ЗСД",
+    "total_area": "26,47",
+    "living_area": "24,6",
+    "bathroom": false,
+    "wc": true,
+    "lobby": "3,29",
+    "balcony": "6,22",
+    "flat_floor": "10",
+    "flat_image": "/images/office_small.jpg",
+    "lat": "60.0387459481955",
+    "lng": "30.2280235290527"
+  },
+  {
+    "flat_address": "Санкт-Петербург Обуховский проспект Александровской Фермы ",
+    "flat_type": "studio",
+    "flat_price": "3499000",
+    "flat_description": "Продам 1-ком. квартиру общей площадью 34 м кв. 5 этаж из 25 монолитного дома, цена за м кв. 102912 ",
+    "created": "28-09-2017 12:36",
+    "flat_id": "2080819",
+    "flat_image": "http://www.rbook.info/upload/images/5aad5490a80cc61281580caa7b8a92fa.jpg"
+  },
+  {
+    "flat_address": "Санкт-Петербург Шушары Школьная улица ",
+    "flat_type": "studio",
+    "flat_price": "3400000",
+    "flat_description": "Продам 2-ком. квартиру общей площадью 43 м кв. 3 этаж из 5  дома, цена за м кв. 79070 ",
+    "created": "28-09-2017 12:18",
+    "flat_id": "2080742",
+    "flat_image": "http://www.rbook.info/upload/images/9bcd104ec8b33d7526f4e228df46412d.jpg"
+  },
+  {
+    "flat_address": "Санкт-Петербург Мурино Петровский бульвар ",
+    "flat_type": "studio",
+    "flat_price": "1690000",
+    "flat_description": "Продам 1-ком. квартиру общей площадью 20 м кв. 15 этаж из 19 монолитного дома, цена за м кв. 84500 ",
+    "created": "28-09-2017 12:18",
+    "flat_id": "2080741",
+    "flat_image": "http://www.rbook.info/upload/images/c5c86f33c2cd6004420a6bd38a0bf494.jpg"
+  },
+  {
+    "flat_address": "Санкт-Петербург Коломяги проспект Сизова ",
+    "flat_type": "studio",
+    "flat_price": "4950000",
+    "flat_description": "Продам 1-ком. квартиру общей площадью 41 м кв. 16 этаж из 17  дома, цена за м кв. 120732 ",
+    "created": "28-09-2017 12:17",
+    "flat_id": "2080734",
+    "flat_image": "http://www.rbook.info/upload/images/00a0e8b712ed000e6cc8fe615819a983.jpg"
+  },
+  {
+    "flat_address": "Санкт-Петербург Народный Октябрьская набережная ",
+    "flat_type": "studio",
+    "flat_price": "4500000",
+    "flat_description": "Продам 2-ком. квартиру общей площадью 63 м кв. 2 этаж из 3  дома, цена за м кв. 71429 ",
+    "created": "28-09-2017 12:16",
+    "flat_id": "2080733",
+    "flat_image": "http://www.rbook.info/upload/images/64784c4a7001fb451bd9b65c09665fe3.jpg"
+  },
+  {
+    "flat_address": "Санкт-Петербург Гагаринское проспект Космонавтов ",
+    "flat_type": "studio",
+    "flat_price": "6700000",
+    "flat_description": "Продам 3-ком. квартиру общей площадью 62 м кв. 9 этаж из 9  дома, цена за м кв. 108065 ",
+    "created": "28-09-2017 12:13",
+    "flat_id": "2080718",
+    "flat_image": "http://www.rbook.info/upload/images/e5386a70a53d93f6c1783abe2aef7ec8.jpg"
+  },
+  {
+    "flat_address": "Санкт-Петербург Нарвский Севастопольская улица ",
+    "flat_type": "studio",
+    "flat_price": "3890000",
+    "flat_description": "Продам 0-ком. квартиру общей площадью 30 м кв. 3 этаж из 10 монолитного дома, цена за м кв. 129667 ",
+    "created": "28-09-2017 12:13",
+    "flat_id": "2080717",
+    "flat_image": "http://www.rbook.info/upload/images/e3144f283e190449a4dc6f7660be05aa.jpg"
+  },
+  {
+    "flat_address": "Санкт-Петербург МО №65 Яхтенная улица ",
+    "flat_type": "studio",
+    "flat_price": "9550000",
+    "flat_description": "Продам 2-ком. квартиру общей площадью 72 м кв. 2 этаж из 25  дома, цена за м кв. 132639 ",
+    "created": "28-09-2017 12:12",
+    "flat_id": "2080715",
+    "flat_image": "http://www.rbook.info/upload/images/fe62add9ef1be7937082e7b68e6a2ba0.jpg"
+  }
+]
