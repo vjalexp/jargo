@@ -3,7 +3,6 @@ var router = express.Router();
 const pg = require('pg');
 const path = require('path');
 const connectionString = process.env.DATABASE_URL || 'postgres://postgres:12345678@localhost:5432/jar' ;
-//const connectionString = process.env.DATABASE_URL || 'postgres://ohsvvupcbjpdrb:27e2a067cad22434faef8e1b0c05472759b61ff30233afe467d0a3a0e479eddc@ec2-54-83-58-17.compute-1.amazonaws.com:5432/defh9ecmrmkqh6' ;
 
 /* const { Client } = require('pg');
 
