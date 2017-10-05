@@ -72,7 +72,7 @@ jargoApp.controller('FlatsController', ($scope, $http) => {
 });
 
 jargoApp.controller('NewsController', function ($scope, $http) {
-	$http.get("http://localhost:5000/json/news.json").then(function(response) {
+	$http.get("/json/news.json").then(function(response) {
 		$scope.newsList = response.data;
 		console.log("newslist", response.data);
 	});
