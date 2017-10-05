@@ -19,10 +19,10 @@
 	
 	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
 	 
-	<!-- <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script> -->
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
 
 	<script src="javascripts/angular-leaflet-directive.min.js"></script>
-	<!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css"> -->
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -69,11 +69,55 @@
 	</form>
 </div>
 
+<div class="row" ng-controller="FlatsController">
+	<div class="col s12 m6 l4" ng-repeat="flat in flatsList">
+		<div class="card">
+			<div class="card-image">
+				<img height="240" class="activator responsive-img"  ng-src="{{flat.flat_image}}">
+				<a class="modal-trigger btn-floating btn-large halfway-fab waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Написать письмо" href="#modal1"><i class="material-icons">mail</i></a>
+			</div>
+			<div class="card-content">
+				<span class="card-title activator grey-text text-darken-4">{{flat.flat_address}}, {{flat.flat_type}}, {{flat.total_area}} м<sup>2</sup><!--<i class="material-icons right">more_vert</i>--></span>
+				<p><a href="#">{{flat.flat_price}} &#8381;</a></p>
+			</div>
+			<div class="card-reveal">
+				<span class="card-title grey-text text-darken-4">{{flat.flat_address}}, {{flat.flat_type}}, {{flat.total_area}} м<sup>2</sup><i class="material-icons right">close</i></span>
+				<p>{{flat.flat_description}}</p>
+			</div>
+			<div class="card-tabs">
+				<ul class="tabs tabs-fixed-width">
+					<li class="tab"><a class="active" href="#property_{{flat.flat_id}}">Характеристики</a></li>
+					<li class="tab"><a href="#mapHolder_{{flat.flat_id}}">На карте</a></li>
+				</ul>
+			</div>
+			<div class="card-content grey lighten-4">
+				<div id="property_{{flat.flat_id}}">
+					<table class="bordered">
+						<thead>
+							<tr>
+								<th>Общие:</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr><td>Общая площадь: {{flat.total_area}} кв. м</td></tr>
+							<tr><td>жилая площадь: {{flat.living_area}} кв. м</td></tr>
+							<tr><td>с/у: {{flat.wc}}</td></tr>
+							<tr><td>коридор: {{flat.lobby}} кв. м</td></tr>
+							<tr><td>этаж: {{flat.flat_floor}}</td></tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="mapHolder_{{flat.flat_id}}">
+					<leaflet defaults="defaults" lf-center="peterburg" markers="markers" width="100%" height="320px"></leaflet>
+				</div>
+			</div>
+		</div>
+	</div>    
+</div>
 
 <div ui-view></div> 
  
 <div class="row" ng-controller="NewsController">
-{{newsList}}
 	<div class="col s12 m12">
 		<h5>Новости</h5>
 		<ul class="collapsible" data-collapsible="expandable">

@@ -71,14 +71,15 @@ jargoApp.controller('FlatsController', ($scope, $http) => {
   });
 });
 
-jargoApp.controller('NewsController', function ($scope, $http) {
+/* jargoApp.controller('NewsController', function ($scope, $http) {
 	$http.get("/json/news.json").then(function(response) {
 		$scope.newsList = response.data;
 		console.log("newslist", response.data);
 	});
 });
-
-/* jargoApp.controller('NewsController2', ($scope, $http) => {
+ */
+ 
+jargoApp.controller('NewsController', ($scope, $http) => {
   $scope.formData = {};
   $scope.newsList = {};
   // Get all news
@@ -91,7 +92,7 @@ jargoApp.controller('NewsController', function ($scope, $http) {
     console.log('Error: ' + error);
   });
 });
- */
+
 jargoApp.controller('mainController', ($scope, $http) => {
   $scope.formData = {};
   $scope.todoData = {};
