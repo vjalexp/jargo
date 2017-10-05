@@ -29,31 +29,8 @@
   
 <body>
   
-<!-- -->
-<!-- <div ng-controller="mainController">
-    <div class="container">
-      <div class="todo-form">
-        <form>
-          <div class="form-group">
-            <input type="text" class="form-control input-lg" placeholder="Enter text..." ng-model="formData.text">
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createTodo()">Add Todo</button>
-        </form>
-      </div>
-      <br>
-      <div class="todo-list">
-        <ul ng-repeat="todo in todoData">
-          <li>
-			<button class="btn red" ng-click="deleteTodo(todo.id)">delete</button>
-			<h3>{{ todo.title }}</h3>
-		  </li><hr>
-        </ul>
-      </div>
-    </div>
-</div> -->
-<!--//-->
-	
-	
+<!-- <button class="btn red" ng-click="deleteTodo(todo.id)">delete</button> -->
+<!-- <button type="submit" class="btn btn-primary btn-lg btn-block" ng-click="createTodo()">Add Todo</button> -->
 	
 <nav>
 	<div class="nav-wrapper teal darken-2">
@@ -92,8 +69,30 @@
 	</form>
 </div>
 
+
+<div ui-view></div> 
  
-  
+<div class="row" ng-controller="NewsController">
+{{newsList}}
+	<div class="col s12 m12">
+		<h5>Новости</h5>
+		<ul class="collapsible" data-collapsible="expandable">
+			<li ng-repeat="article in newsList">
+			  <div class="collapsible-header">{{article.title}} <span class="badge" data-badge-caption="{{article.ndate}}"></span></div>
+			  <div class="collapsible-body" >
+				<div class="row">
+					<div class="col s12 m6">
+						<img width="320" class="responsive-img" ng-src="{{article.photo}}">
+					</div>
+					<div class="col s12 m6">
+						{{article.content}}
+					</div>
+				</div>
+			  </div>
+			</li>
+		</ul>
+	</div>
+</div>
  
 <ul id="slide-out" class="side-nav">
 	<li>
@@ -113,7 +112,43 @@
 	<li><a class="waves-effect" href="#!">Добавить объект</a></li>
 	<li><a class="waves-effect" href="#!">Сохраненные поиски</a></li>
 </ul>
- 
+
+<!-- Modal -->
+<div id="modal1" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h5>Заявка на просмотр квартиры</h5>
+		<div class="row">
+			<form class="col s12">
+			<div class="row">
+				<div class="input-field col s12">
+					<input id="first_name" type="text" class="validate">
+					<label for="first_name">Имя</label>
+				</div>
+				<div class="input-field col s12">
+					<input id="email" type="email" class="validate">
+					<label for="email" data-error="неправильный формат эл.почты">Почта</label>
+				</div>
+				<div class="input-field col s12">
+					<input type="date" class="datepicker">
+					<label for="last_name">Дата просмотра</label>
+				</div>
+				<div class="input-field col s12">
+					<select multiple>
+					<option value="1">студия</option>
+					<option value="2">евродвушка</option>
+					<option value="3">евротрешка</option>
+					</select>
+					<label>Тип квартиры</label>	
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="mailto:sell@jargo.ru" class="modal-action modal-close waves-effect waves-green btn-flat ">Отправить</a>
+	</div>
+</div>
+<!-- //Modal -->
  
 <footer class="page-footer teal darken-2"> 
   <div class="container">
@@ -150,7 +185,29 @@
 </footer>
 	
 	
- 
+
+<script>
+$(document).ready(function() {
+	$(".button-collapse").sideNav();
+
+	$('#modal1').modal();
+	
+	$('.tooltipped').tooltip({delay: 50});
+	
+	setTimeout(function() {
+		$('ul.tabs').tabs();
+	}, 100);
+	
+	$('.datepicker').pickadate({
+		selectMonths: true, 
+		selectYears: 15 
+	});
+	
+	$('.collapsible').collapsible();
+	
+	$('select').material_select();
+});
+</script>
 
 
     <script src="javascripts/app.js"></script>
