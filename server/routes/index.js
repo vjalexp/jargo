@@ -11,13 +11,14 @@ const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
-
+console.log("test postgre before ");
 client.connect();
+console.log("test postgre after ");
 
 client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
+  //if (err) throw err;
   for (let row of res.rows) {
-    console.log("test postgre", JSON.stringify(row));
+    console.log("test in loop", JSON.stringify(row));
   }
   client.end();
 });
