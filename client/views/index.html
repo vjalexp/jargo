@@ -92,74 +92,8 @@
 	</form>
 </div>
 
-<div class="row" ng-controller="FlatsController">
-	<div class="col s12 m6 l4" ng-repeat="flat in flatsList">
-		<div class="card">
-			<div class="card-image">
-				<img height="240" class="activator responsive-img"  ng-src="{{flat.flat_image}}">
-				<a class="modal-trigger btn-floating btn-large halfway-fab waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Написать письмо" href="#modal1"><i class="material-icons">mail</i></a>
-			</div>
-			<div class="card-content">
-				<span class="card-title activator grey-text text-darken-4">{{flat.flat_address}}, {{flat.flat_type}}, {{flat.total_area}} м<sup>2</sup><!--<i class="material-icons right">more_vert</i>--></span>
-				<p><a href="#">{{flat.flat_price}} &#8381;</a></p>
-			</div>
-			<div class="card-reveal">
-				<span class="card-title grey-text text-darken-4">{{flat.flat_address}}, {{flat.flat_type}}, {{flat.total_area}} м<sup>2</sup><i class="material-icons right">close</i></span>
-				<p>{{flat.flat_description}}</p>
-			</div>
-			<div class="card-tabs">
-				<ul class="tabs tabs-fixed-width">
-					<li class="tab"><a class="active" href="#property_{{flat.flat_id}}">Характеристики</a></li>
-					<li class="tab"><a href="#mapHolder_{{flat.flat_id}}">На карте</a></li>
-				</ul>
-			</div>
-			<div class="card-content grey lighten-4">
-				<div id="property_{{flat.flat_id}}">
-					<table class="bordered">
-						<thead>
-							<tr>
-								<th>Общие:</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr><td>Общая площадь: {{flat.total_area}} кв. м</td></tr>
-							<tr><td>жилая площадь: {{flat.living_area}} кв. м</td></tr>
-							<tr><td>с/у: {{flat.wc}}</td></tr>
-							<tr><td>коридор: {{flat.lobby}} кв. м</td></tr>
-							<tr><td>этаж: {{flat.flat_floor}}</td></tr>
-						</tbody>
-					</table>
-				</div>
-				<div id="mapHolder_{{flat.flat_id}}">
-					<leaflet defaults="defaults" lf-center="peterburg" markers="markers" width="100%" height="320px"></leaflet>
-				</div>
-			</div>
-		</div>
-	</div>    
-</div>    
-
-<div ui-view></div> 
  
-<div class="row" ng-controller="NewsController">
-	<div class="col s12 m12">
-		<h5>Новости</h5>
-		<ul class="collapsible" data-collapsible="expandable">
-			<li ng-repeat="article in newsList">
-			  <div class="collapsible-header">{{article.title}} <span class="badge" data-badge-caption="{{article.ndate}}"></span></div>
-			  <div class="collapsible-body" >
-				<div class="row">
-					<div class="col s12 m6">
-						<img width="320" class="responsive-img" ng-src="{{article.photo}}">
-					</div>
-					<div class="col s12 m6">
-						{{article.content}}
-					</div>
-				</div>
-			  </div>
-			</li>
-		</ul>
-	</div>
-</div>
+  
  
 <ul id="slide-out" class="side-nav">
 	<li>
@@ -179,43 +113,7 @@
 	<li><a class="waves-effect" href="#!">Добавить объект</a></li>
 	<li><a class="waves-effect" href="#!">Сохраненные поиски</a></li>
 </ul>
-
-<!-- Modal -->
-<div id="modal1" class="modal modal-fixed-footer">
-	<div class="modal-content">
-		<h5>Заявка на просмотр квартиры</h5>
-		<div class="row">
-			<form class="col s12">
-			<div class="row">
-				<div class="input-field col s12">
-					<input id="first_name" type="text" class="validate">
-					<label for="first_name">Имя</label>
-				</div>
-				<div class="input-field col s12">
-					<input id="email" type="email" class="validate">
-					<label for="email" data-error="неправильный формат эл.почты">Почта</label>
-				</div>
-				<div class="input-field col s12">
-					<input type="date" class="datepicker">
-					<label for="last_name">Дата просмотра</label>
-				</div>
-				<div class="input-field col s12">
-					<select multiple>
-					<option value="1">студия</option>
-					<option value="2">евродвушка</option>
-					<option value="3">евротрешка</option>
-					</select>
-					<label>Тип квартиры</label>	
-				</div>
-			</div>
-			</form>
-		</div>
-	</div>
-	<div class="modal-footer">
-		<a href="mailto:sell@jargo.ru" class="modal-action modal-close waves-effect waves-green btn-flat ">Отправить</a>
-	</div>
-</div>
-<!-- //Modal -->
+ 
  
 <footer class="page-footer teal darken-2"> 
   <div class="container">
@@ -252,29 +150,7 @@
 </footer>
 	
 	
-
-<script>
-$(document).ready(function() {
-	$(".button-collapse").sideNav();
-
-	$('#modal1').modal();
-	
-	$('.tooltipped').tooltip({delay: 50});
-	
-	setTimeout(function() {
-		$('ul.tabs').tabs();
-	}, 100);
-	
-	$('.datepicker').pickadate({
-		selectMonths: true, 
-		selectYears: 15 
-	});
-	
-	$('.collapsible').collapsible();
-	
-	$('select').material_select();
-});
-</script>
+ 
 
 
     <script src="javascripts/app.js"></script>
