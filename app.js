@@ -1,4 +1,5 @@
 const express = require('express');
+const enforce = require('express-sslify');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -9,6 +10,7 @@ const routes = require('./server/routes/index');
 // var users = require('./routes/users');
 
 const app = express();
+app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
