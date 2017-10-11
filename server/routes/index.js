@@ -2,26 +2,7 @@ var express = require('express');
 var router = express.Router();
 const pg = require('pg');
 const path = require('path');
-/*const connectionString = process.env.DATABASE_URL || 'postgres://postgres:12345678@localhost:5432/jar' ;*/
-const connectionString = process.env.DATABASE_URL || 'postgres://ufkjmoloatgqre:67fb02a63fa047d8b66bacee0c6869f4f5145d4155e75a815dbf0a980b9be7ca@ec2-174-129-195-73.compute-1.amazonaws.com:5432/d6br2379gd63cj';
-/* const { Client } = require('pg');
-
-const client = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
-console.log("test postgre before ");
-client.connect();
-console.log("test postgre after ");
-
-client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  //if (err) throw err;
-  for (let row of res.rows) {
-    console.log("test in loop", JSON.stringify(row));
-  }
-  client.end();
-}); */
-
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:12345678@localhost:5432/jar';
 
 router.get('/', (req, res, next) => {
   res.sendFile(path.join(
