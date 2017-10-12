@@ -73,6 +73,13 @@ jargoApp.controller('FlatsController', ($scope, $location, $http) => {
 			}
 		};
 		
+		$scope.myPan = function(lat,lng,blockToShow) {
+			$scope.map.center.lat = lat; 
+			$scope.map.center.lng = lng;
+			$scope.map.center.zoom = 14;
+			$scope.isActive = blockToShow;
+		}
+		
 		/* $scope.$on("centerUrlHash", function(event, centerHash) {
 			console.log("url", centerHash);
 			$location.search({ c: centerHash });
