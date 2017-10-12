@@ -47,6 +47,25 @@ router.get('/api/v1/news', (req, res, next) => {
   });
 });
 
+router.get('/api/v1/articles', (req, res, next) => {
+  const results = [];
+  pg.connect(connectionString, (err, client, done) => {
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json({success: false, data: err});
+    }
+    const query = client.query('SELECT * FROM articles ORDER BY ndate ASC;');
+    query.on('row', (row) => {
+      results.push(row);
+    });
+    query.on('end', () => {
+      done();
+      return res.json(results);
+    });
+  });
+});
+
 router.get('/api/v1/todos', (req, res, next) => {
   const results = [];
    

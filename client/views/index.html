@@ -87,11 +87,19 @@
 			<div class="card-tabs">
 				<ul class="tabs tabs-fixed-width">
 					<li class="tab"><a class="active" href="#property_{{flat.flat_id}}">Характеристики</a></li>
-					<li class="tab"><a href="#mapHolder_{{flat.flat_id}}">На карте</a></li>
+					<li class="tab">
+						<a href="#mapHolder_{{flat.flat_id}}">
+							На карте 
+						</a>
+					</li>
 				</ul>
 			</div>
 			<div class="card-content grey lighten-4">
 				<div id="property_{{flat.flat_id}}">
+						<input type="number" step="any" ng-model="flat.lat" />
+						<input type="number" step="any" ng-model="flat.lng" />
+						<input type="number" step="any" ng-model="center.zoom" />
+						<button ng-click="center.autoDiscover=true">Позиционировать на карте</button>
 					<table class="bordered">
 						<thead>
 							<tr>
@@ -108,7 +116,7 @@
 					</table>
 				</div>
 				<div id="mapHolder_{{flat.flat_id}}">
-					<leaflet defaults="defaults" lf-center="peterburg" markers="markers" width="100%" height="320px"></leaflet>
+					<leaflet defaults="defaults" lf-center="center" url-hash-center="yes" markers="markers" width="100%" height="320px"></leaflet>
 				</div>
 			</div>
 		</div>
@@ -121,13 +129,31 @@
 	<div class="col s12 m12">
 		<h5>Новости</h5>
 		<ul class="collapsible" data-collapsible="expandable">
-			<li ng-repeat="article in newsList">
-			  <div class="collapsible-header">{{article.title}} <span class="badge" data-badge-caption="{{article.ndate}}"></span></div>
+			<li ng-repeat="news in newsList">
+			  <div class="collapsible-header">{{news.title}} <span class="badge" data-badge-caption="{{news.ndate}}"></span></div>
 			  <div class="collapsible-body" >
 				<div class="row">
 					<div class="col s12 m6">
-						<img width="320" class="responsive-img" ng-src="{{article.photo}}">
+						<img width="320" class="responsive-img" ng-src="{{news.photo}}">
 					</div>
+					<div class="col s12 m6">
+						{{news.content}}
+					</div>
+				</div>
+			  </div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="row" ng-controller="ArticlesController">
+	<div class="col s12 m12">
+		<h5>Статьи</h5>
+		<ul class="collapsible" data-collapsible="expandable">
+			<li ng-repeat="article in articlesList">
+			  <div class="collapsible-header">{{article.title}} <span class="badge" data-badge-caption="{{article.ndate}}"></span></div>
+			  <div class="collapsible-body" >
+				<div class="row">
 					<div class="col s12 m6">
 						{{article.content}}
 					</div>

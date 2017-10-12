@@ -10,7 +10,7 @@ const routes = require('./server/routes/index');
 // var users = require('./routes/users');
 
 const app = express();
-app.use(enforce.HTTPS({ trustProtoHeader: true }))
+//app.use(enforce.HTTPS({ trustProtoHeader: true }))
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));

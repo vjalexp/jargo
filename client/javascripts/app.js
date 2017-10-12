@@ -28,21 +28,28 @@ jargoApp.controller('ListController', function ($scope) {
 });
 
 
-jargoApp.controller('FlatsController', ($scope, $http) => {
+jargoApp.controller('FlatsController', ($scope, $location, $http) => {
   $scope.formData = {};
   $scope.newsList = {};
   // Get all flats
   $http.get('/api/v1/flats')
   .success((data) => {
     $scope.flatsList = data;
-	var m1 = 
-			{
-				lat: parseFloat($scope.flatsList[0].lat),
-				lng: parseFloat($scope.flatsList[0].lng),
-				focus: false,
-				draggable: false,
-				message: "test1",
-			};
+		var m1 = {
+					lat: parseFloat($scope.flatsList[0].lat),
+					lng: parseFloat($scope.flatsList[0].lng),
+					focus: false,
+					draggable: false,
+					message: "Комендантский",
+				};
+				
+		var m2 = {
+					lat: parseFloat($scope.flatsList[1].lat),
+					lng: parseFloat($scope.flatsList[1].lng),
+					focus: false,
+					draggable: false,
+					message: "Гражданский",
+				};
 			
 		$scope.map = {
 			defaults: {
@@ -53,8 +60,11 @@ jargoApp.controller('FlatsController', ($scope, $http) => {
 				lng: 30.2280235290527,
 				zoom: 15
 			},
+			center: {
+				autoDiscover: true
+			},
 			markers:  {
-				m1
+				m1, m2
 			},
 			events: {
 				markers: {
@@ -63,8 +73,17 @@ jargoApp.controller('FlatsController', ($scope, $http) => {
 			}
 		};
 		
+		/* $scope.$on("centerUrlHash", function(event, centerHash) {
+			console.log("url", centerHash);
+			$location.search({ c: centerHash });
+		});
+		
+		$scope.changeLocation = function(centerHash) {
+			$location.search({ c: centerHash });
+		};
+		 */
 		angular.extend($scope, $scope.map);
-    console.log(data);
+		console.log(data);
   })
   .error((error) => {
     console.log('Error: ' + error);
@@ -86,6 +105,20 @@ jargoApp.controller('NewsController', ($scope, $http) => {
   $http.get('/api/v1/news')
   .success((data) => {
     $scope.newsList = data;
+    console.log(data);
+  })
+  .error((error) => {
+    console.log('Error: ' + error);
+  });
+});
+
+jargoApp.controller('ArticlesController', ($scope, $http) => {
+  $scope.formData = {};
+  $scope.articlesList = {};
+  // Get all articles
+  $http.get('/api/v1/articles')
+  .success((data) => {
+    $scope.articlesList = data;
     console.log(data);
   })
   .error((error) => {
