@@ -73,7 +73,8 @@ jargoApp.controller('FlatsController', ($scope, $location, $http) => {
 			}
 		};
 		
-		$scope.myPan = function(lat,lng,blockToShow) {
+		$scope.myPan = function(e, lat, lng, blockToShow) {
+			e.preventDefault();
 			$scope.map.center.lat = lat; 
 			$scope.map.center.lng = lng;
 			$scope.map.center.zoom = 14;
