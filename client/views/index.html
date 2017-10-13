@@ -10,19 +10,18 @@
 	<meta name="keywords" content="купить недвижимость, спб, Санкт-Петербург, недорогая квартира, студия, евродвушка, евротрешка, дешевое жилье, европланировка, квадратная студия, студия с двумя окнами, большая кухня, функциональная планировка, рациональный коридор, российская квартира-студия, малогабаритная студия, семейная квартира, грамотное зонирование, небольшой метраж">
     
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	
 	<link rel="stylesheet" href="stylesheets/output.css">
+	<link rel="stylesheet" href="stylesheets/leaflet.css">
+	
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.2.2/angular-materialize.min.js"></script>
 	
-	<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+	<script src="javascripts/angular-ui-router.min.js"></script>
 	 
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
-
+	<script src="javascripts/leaflet.js"></script>
 	<script src="javascripts/angular-leaflet-directive.min.js"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.css">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -58,19 +57,16 @@
 		<a href="/"><img src="images/jarlogo.png"/></a>
 	</div>
 </div>
- 
-<div class="row">
-	<form class="col s12 m12">
-		<div class="input-field">
-			<input id="search" type="search" required>
-			<label class="label-icon" for="search"><i class="material-icons">search</i></label>
-			<i class="material-icons">close</i>
-		</div>
-	</form>
-</div>
+
+<form>
+	<div class="input-field">
+		<label class="label-icon" for="search" style="margin-left:10px;"><i class="material-icons left-align">search</i></label>
+		<input id="search" type="search" style="margin-left:10px;padding-left:30px;width:90%;" ng-model="sflats.flat_address">
+	</div>
+</form>
 
 <div class="row" ng-controller="FlatsController">
-	<div class="col s12 m6 l4" ng-repeat="flat in flatsList">
+	<div class="col s12 m6 l4" ng-repeat="flat in flatsList | filter:sflats">
 		<div class="card">
 			<div class="card-image">
 				<img height="240" class="activator responsive-img"  ng-src="{{flat.flat_image}}">
@@ -211,7 +207,7 @@
 		</div>
 	</div>
 	<div class="modal-footer">
-		<a href="mailto:sell@jargo.ru" class="modal-action modal-close waves-effect waves-green btn-flat ">Отправить</a>
+		<a href="mailto:vjalexp@gmail.com" class="modal-action modal-close waves-effect waves-green btn-flat ">Отправить</a>
 	</div>
 </div>
 <!-- //Modal -->
@@ -226,7 +222,8 @@
 	  <div class="col s12 m4 offset-m2 l4 offset-l2">
 		<h5 class="white-text">Навигация</h5>
 		<ul>
-		  <li><a href="#" data-activates="slide-out" class="grey-text text-lighten-3 button-collapse">Личный кабинет</a></li>
+		  <!-- <li><a href="#" data-activates="slide-out" class="grey-text text-lighten-3 button-collapse">Личный кабинет</a></li> -->
+		  <li><a href="#" class="grey-text text-lighten-3 button-collapse">Личный кабинет</a></li>
 		  <li><a class="grey-text text-lighten-3" href="#!">Реклама на сайте</a></li>
 		  <li><a class="grey-text text-lighten-3" href="#!">Требование к ПО</a></li>
 		  <li><a class="grey-text text-lighten-3" href="#!">Защита персональных данных</a></li>
@@ -245,7 +242,8 @@
   <div class="footer-copyright">
 	<div class="container">
 	&copy; 2017 &laquo;Ярго.ру&raquo;
-	<a class="grey-text text-lighten-4 right" href="#!">Создание сайта</a>
+	<a class="grey-text text-lighten-4 right" href="http://webpopovich.ru" target="_blank">Создание сайта</a>
+	<p><small>Сайт www.jargo.ru носит исключительно информационный характер и не является ни при каких условиях и обстоятельствах публичной офертой, определяемой положениями ст.437 ГК РФ.</small></p>
 	</div>
   </div>
 </footer>
