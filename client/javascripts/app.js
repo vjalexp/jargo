@@ -43,14 +43,6 @@ jargoApp.controller('FlatsController', ($scope, $location, $http) => {
 					message: "Комендантский",
 				};
 				
-		var m2 = {
-					lat: parseFloat($scope.flatsList[1].lat),
-					lng: parseFloat($scope.flatsList[1].lng),
-					focus: false,
-					draggable: false,
-					message: "Гражданский",
-				};
-			
 		$scope.map = {
 			defaults: {
 				scrollWheelZoom: false
@@ -64,7 +56,7 @@ jargoApp.controller('FlatsController', ($scope, $location, $http) => {
 				autoDiscover: true
 			},
 			markers:  {
-				m1, m2
+				m1
 			},
 			events: {
 				markers: {
