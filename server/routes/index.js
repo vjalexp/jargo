@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const pg = require('pg');
 const path = require('path');
-const connectionString = process.env.DATABASE_URL || 'postgres://postgres:12345678@localhost:5432/jar';
+const connectionString = process.env.DATABASE_URL || 'postgres://postgres:12345678@localhost:5432/jargo';
 
 router.get('/', (req, res, next) => {
   res.sendFile(path.join(
