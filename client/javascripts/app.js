@@ -55,6 +55,15 @@ jargoApp.controller('FlatsController', ($scope, $location, $http) => {
 			center: {
 				autoDiscover: true
 			},
+      layers: {
+        baselayers: {
+            osm: {
+                name: 'OpenStreetMap',
+                url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                type: 'xyz'
+            }
+        }
+      },
 			markers:  {
 				m1
 			},
