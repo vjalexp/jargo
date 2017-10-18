@@ -2,20 +2,24 @@ var jargoApp = angular.module('jargoApp', ['ui.router', 'ui.materialize', 'leafl
 
 jargoApp.config(function($stateProvider, $urlRouterProvider) {
     
-    //$urlRouterProvider.otherwise('/studio');
+    //$urlRouterProvider.otherwise('/news');
     
     $stateProvider
-		.state('studio', {
-            url: '/studio',
-            templateUrl: 'studio.html'
+		.state('news', {
+            url: '/news',
+            templateUrl: 'views/news.html'
         })
-		.state('euro-double', {
-            url: '/euro-double',
-            templateUrl: 'euro-double.html'
+    .state('articles', {
+            url: '/articles',
+            templateUrl: 'views/articles.html'
         })
-		.state('euro-triple', {
-            url: '/euro-triple',
-            templateUrl: 'euro-triple.html'
+    .state('agents', {
+            url: '/agents',
+            templateUrl: 'views/agents.html'
+        })
+    .state('builders', {
+            url: '/builders',
+            templateUrl: 'views/builders.html'
         });
 });
 

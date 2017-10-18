@@ -35,14 +35,48 @@
 	<div class="nav-wrapper teal darken-2">
 		<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 		<ul class="right hide-on-med-and-down">
-			<li><a ui-sref="studio">Студии</a></li>
-			<li><a ui-sref="euro-double">Евродвушки</a></li>
-			<li><a ui-sref="euro-triple">Евротрешки</a></li>
+			<li><a ui-sref="studio">Студии1</a></li>
+			<li><a ui-sref="euro-double">Евродвушки1</a></li>
+			<li><a ui-sref="euro-triple">Евротрешки1</a></li>
 		</ul>
+
+		<ul id="slide-out" class="side-nav">
+			<li>
+				<div class="user-view">
+				<div class="background">
+					<img src="images/office.jpg">
+				</div>
+				<a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+				<a href="#!name"><span class="white-text name">Вася Пупкин</span></a>
+				<a href="#!email"><span class="white-text email">vasya@gmail.com</span></a>
+				</div>
+			</li>
+			<li><a href="#!"><i class="material-icons">person</i>Профиль</a></li>
+			<li><a href="#!">Настройки</a></li>
+			<li><div class="divider"></div></li>
+			<li><a class="subheader">Избранное</a></li>
+			<li><a class="waves-effect" href="#!">Добавить объект</a></li>
+			<li><a class="waves-effect" href="#!">Сохраненные поиски</a></li>
+		</ul>
+
 		<ul class="side-nav" id="mobile-demo">
-			<li><a ui-sref="studio">Студии</a></li>
-			<li><a ui-sref="euro-double">Евродвушки</a></li>
-			<li><a ui-sref="euro-triple">Евротрешки</a></li>
+			<li>
+				<div class="user-view">
+				<div class="background">
+					<img src="images/office.jpg">
+				</div>
+				<a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+				<a href="#!name"><span class="white-text name">Вася Пупкин</span></a>
+				<a href="#!email"><span class="white-text email">vasya@gmail.com</span></a>
+				</div>
+			</li>
+			<li><a href="#!"><i class="material-icons">person</i>Профиль</a></li>
+			<li><a href="#!"><i class="material-icons">settings</i>Настройки</a></li>
+			<li><div class="divider"></div></li>
+			<li><a class="waves-effect" ui-sref="news">Новости</a></li>
+			<li><a class="waves-effect" ui-sref="articles">Статьи</a></li>
+			<li><a class="waves-effect" ui-sref="agents">Риелторы</a></li>
+			<li><a class="waves-effect" ui-sref="builders">Застройщики</a></li>
 		</ul>
 	</div>
 </nav>
@@ -159,25 +193,6 @@
 	</div>
 </div>
  
-<!--<ul id="slide-out" class="side-nav">
-	<li>
-		<div class="user-view">
-		<div class="background">
-			<img src="images/office.jpg">
-		</div>
-		<a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-		<a href="#!name"><span class="white-text name">Вася Пупкин</span></a>
-		<a href="#!email"><span class="white-text email">vasya@gmail.com</span></a>
-		</div>
-	</li>
-	<li><a href="#!"><i class="material-icons">person</i>Профиль</a></li>
-	<li><a href="#!">Настройки</a></li>
-	<li><div class="divider"></div></li>
-	<li><a class="subheader">Избранное</a></li>
-	<li><a class="waves-effect" href="#!">Добавить объект</a></li>
-	<li><a class="waves-effect" href="#!">Сохраненные поиски</a></li>
-</ul>-->
-
 <!-- Modal -->
 <div id="modal1" class="modal modal-fixed-footer">
 	<div class="modal-content">
@@ -185,13 +200,13 @@
 		<div class="row">
 			<form class="col s12">
 			<div class="row">
-				<div class="input-field col s12">
+				<!-- <div class="input-field col s12">
 					<input id="first_name" type="text" class="validate">
 					<label for="first_name">Имя</label>
-				</div>
+				</div> -->
 				<div class="input-field col s12">
 					<input id="email" type="email" class="validate">
-					<label for="email" data-error="неправильный формат эл.почты">Почта</label>
+					<label for="email" data-error="неправильный формат эл.почты">Электронный адрес</label>
 				</div>
 				<div class="input-field col s12">
 					<input type="date" class="datepicker">
@@ -201,7 +216,6 @@
 					<select multiple>
 					<option value="1">студия</option>
 					<option value="2">евродвушка</option>
-					<option value="3">евротрешка</option>
 					</select>
 					<label>Тип квартиры</label>	
 				</div>
@@ -225,8 +239,8 @@
 	  <div class="col s12 m4 offset-m2 l4 offset-l2">
 		<h5 class="white-text">Навигация</h5>
 		<ul>
-		  <!-- <li><a href="#" data-activates="slide-out" class="grey-text text-lighten-3 button-collapse">Личный кабинет</a></li> -->
-		  <li><a href="#" class="grey-text text-lighten-3 button-collapse">Личный кабинет</a></li>
+		  <!--<li><a href="#" data-activates="slide-out" class="grey-text text-lighten-3 button-collapse">Личный кабинет</a></li>-->
+		  <li><a class="grey-text text-lighten-3" href="#!">Контакты</a></li>
 		  <li><a class="grey-text text-lighten-3" href="#!">Реклама на сайте</a></li>
 		  <li><a class="grey-text text-lighten-3" href="#!">Требование к ПО</a></li>
 		  <li><a class="grey-text text-lighten-3" href="#!">Защита персональных данных</a></li>
@@ -309,4 +323,3 @@ $(document).ready(function() {
 <!-- /Yandex.Metrika counter -->
 </body>
 </html>
- 
