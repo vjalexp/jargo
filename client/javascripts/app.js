@@ -33,76 +33,22 @@ jargoApp.controller('ListController', function ($scope) {
 
 
 jargoApp.controller('FlatsController', ($scope, $location, $http) => {
-  $scope.formData = {};
-  $scope.newsList = {};
-  // Get all flats
   $http.get('/api/v1/flats')
   .success((data) => {
     $scope.flatsList = data;
-		var m1 = {
-					lat: parseFloat($scope.flatsList[0].lat),
-					lng: parseFloat($scope.flatsList[0].lng),
-					focus: false,
-					draggable: false,
-					message: "Комендантский",
-				};
-				
+    console.log(data);
+
 		$scope.map = {
 			defaults: {
-				scrollWheelZoom: false
-			},
-			peterburg: {
-				lat: 60.0387459481955,
-				lng: 30.2280235290527,
-				zoom: 15
+				scrollWheelZoom: false,
+        zoom: 15
 			},
 			center: {
 				autoDiscover: true
-			},
-      layers: {
-        baselayers: {
-            osm: {
-                name: 'OpenStreetMap',
-                url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                type: 'xyz'
-            }
-        }
-      },
-			markers:  {
-				m1
-			},
-			events: {
-				markers: {
-				  enable: [ 'dragend' ]
-				}
 			}
 		};
 		
-    $scope.removeMarkers = function(e) {
-      e.preventDefault();
-      $scope.map.markers = {};
-      console.log("markers", $scope.map.markers);
-    }
-
-		$scope.myPan = function(e, lat, lng) {
-			e.preventDefault(e);
-			$scope.map.center.lat = lat; 
-			$scope.map.center.lng = lng;
-			$scope.map.center.zoom = 14;
-      console.log("markers", $scope.map.markers);
-		}
-		
-		/* $scope.$on("centerUrlHash", function(event, centerHash) {
-			console.log("url", centerHash);
-			$location.search({ c: centerHash });
-		});
-		
-		$scope.changeLocation = function(centerHash) {
-			$location.search({ c: centerHash });
-		};
-		 */
 		angular.extend($scope, $scope.map);
-		console.log(data);
   })
   .error((error) => {
     console.log('Error: ' + error);
@@ -124,7 +70,7 @@ jargoApp.controller('NewsController', ($scope, $http) => {
   $http.get('/api/v1/news')
   .success((data) => {
     $scope.newsList = data;
-    console.log(data);
+    //console.log(data);
   })
   .error((error) => {
     console.log('Error: ' + error);
@@ -138,7 +84,7 @@ jargoApp.controller('ArticlesController', ($scope, $http) => {
   $http.get('/api/v1/articles')
   .success((data) => {
     $scope.articlesList = data;
-    console.log(data);
+    //console.log(data);
   })
   .error((error) => {
     console.log('Error: ' + error);

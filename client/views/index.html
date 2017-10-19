@@ -102,40 +102,24 @@
 				<span class="card-title grey-text text-darken-4">{{flat.flat_address}}, {{flat.flat_type}}, {{flat.total_area}} м<sup>2</sup><i class="material-icons right">close</i></span>
 				<p>{{flat.flat_description}}</p>
 			</div>
-			<div class="card-tabs">
-				<ul class="tabs tabs-fixed-width">
-					<li class="tab">
-						<a href="#property-{{flat.flat_id}}" ng-click="removeMarkers($event)">
-						Характеристики
-						</a>
-					</li>
-					<li class="tab">
-						<a href="#mapHolder-{{flat.flat_id}}" ng-click="myPan($event, flat.lat, flat.lng)">
-						На карте 
-						</a>
-					</li>
-				</ul>
-			</div>
 			<div class="card-content grey lighten-4">
-				<div id="property-{{flat.flat_id}}">
-					<table class="bordered">
-						<thead>
-							<tr>
-								<th>Общие:</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr><td>Общая площадь: {{flat.total_area}} кв. м</td></tr>
-							<tr><td>жилая площадь: {{flat.living_area}} кв. м</td></tr>
-							<tr><td>с/у: {{flat.wc}}</td></tr>
-							<tr><td>коридор: {{flat.lobby}} кв. м</td></tr>
-							<tr><td>этаж: {{flat.flat_floor}}</td></tr>
-						</tbody>
-					</table>
-				</div>
-				<div id="mapHolder-{{flat.flat_id}}">
-					<leaflet defaults="defaults" lf-center="center" url-hash-center="yes" markers="markers" width="100%" height="320px"></leaflet>
-				</div>
+				<leaflet defaults="defaults" 
+						 lf-center="{ lat: flat.lat, lng: flat.lng, zoom: 15 }" 
+						 width="100%" 
+						 height="240px"></leaflet>
+				<table class="bordered">
+					<tr>
+						<td><strong>Общая пл.:</strong> {{flat.total_area}} кв. м</td>
+						<td><strong>С/у:</strong> {{flat.wc}}</td>
+					</tr>
+						<td><strong>Жилая пл.:</strong> {{flat.living_area}} кв. м</td>
+						<td><strong>Балкон:</strong> {{flat.balcony}} кв. м</td>
+					</tr>
+					<tr>
+						<td><strong>Коридор:</strong> {{flat.lobby}} кв. м</td>
+						<td><strong>Этаж:</strong> {{flat.flat_floor}}</td>
+					</tr>
+				</table>
 			</div>
 		</div>
 	</div>    
@@ -150,7 +134,7 @@
 			<li ng-repeat="news in newsList">
 			  <div class="collapsible-header">
 			  	{{news.title}} 
-			  	<span class="new badge red lighten-1">{{news.ndate}}</span>
+			  	<span class="new badge red lighten-1" data-badge-caption=" ">{{news.ndate}}</span>
 		  	  </div>
 			  <div class="collapsible-body" >
 				<div class="row">
