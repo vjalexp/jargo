@@ -100,10 +100,14 @@
 			</div>
 			<div class="card-tabs">
 				<ul class="tabs tabs-fixed-width">
-					<li class="tab"><a class="active" ng-href="#property_{{flat.flat_id}}">Характеристики</a></li>
 					<li class="tab">
-						<a ng-href="#mapHolder_{{flat.flat_id}}" ng-click="myPan($event, flat.lat,flat.lng,flat.flat_id)">
-							На карте 
+						<a class="active" ng-href="#property_{{flat.flat_id}}" ng-click="removeMarkers($event)">
+						Характеристики
+						</a>
+					</li>
+					<li class="tab">
+						<a ng-href="#mapHolder_{{flat.flat_id}}" ng-click="myPan($event, flat.lat, flat.lng)">
+						На карте 
 						</a>
 					</li>
 				</ul>

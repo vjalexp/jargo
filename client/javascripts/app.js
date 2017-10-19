@@ -78,12 +78,18 @@ jargoApp.controller('FlatsController', ($scope, $location, $http) => {
 			}
 		};
 		
-		$scope.myPan = function(e, lat, lng, blockToShow) {
-			e.preventDefault();
+    $scope.removeMarkers = function(e) {
+      e.preventDefault();
+      $scope.map.markers = {};
+      console.log("markers", $scope.map.markers);
+    }
+
+		$scope.myPan = function(e, lat, lng) {
+			e.preventDefault(e);
 			$scope.map.center.lat = lat; 
 			$scope.map.center.lng = lng;
 			$scope.map.center.zoom = 14;
-			$scope.isActive = blockToShow;
+      console.log("markers", $scope.map.markers);
 		}
 		
 		/* $scope.$on("centerUrlHash", function(event, centerHash) {
