@@ -88,18 +88,30 @@
 </form>
 
 <div class="row" ng-controller="FlatsController">
-	<div class="col s12 m6 l4" ng-repeat="flat in flatsList | filter:sflats">
+ 	<div class="col s12 m6 l4" ng-repeat="flat in flatsList | filter:sflats">
 		<div class="card">
 			<div class="card-image">
-				<img height="240" class="activator responsive-img"  ng-src="{{flat.flat_image}}">
+				<div class="slider">
+					<ul class="slides">
+						<li>
+							<img height="240" style="object-fit: cover" class="activator" ng-src="{{flat.flat_image | split:',':0}}">
+						</li>
+						<li>
+							<img height="240" style="object-fit: cover" class="activator" ng-src="{{flat.flat_image | split:',':1}}">
+						</li>
+						<li>
+							<img height="240" style="object-fit: cover" class="activator" ng-src="{{flat.flat_image | split:',':2}}">
+						</li>
+					</ul>
+				</div>
 				<a class="modal-trigger btn-floating btn-large halfway-fab waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Написать письмо" href="#modal1"><i class="material-icons">mail</i></a>
 			</div>
 			<div class="card-content">
-				<span class="card-title activator grey-text text-darken-4">{{flat.flat_address}}, {{flat.total_area}} м<sup>2</sup><!--<i class="material-icons right">more_vert</i>--></span>
+				<span class="card-title activator grey-text text-darken-4 truncate">{{flat.flat_address}}</span>
 				<p><a href="#">{{flat.flat_price}} &#8381;</a></p>
 			</div>
 			<div class="card-reveal">
-				<span class="card-title grey-text text-darken-4">{{flat.flat_address}}, {{flat.flat_type}}, {{flat.total_area}} м<sup>2</sup><i class="material-icons right">close</i></span>
+				<span class="card-title grey-text text-darken-4">{{flat.flat_address}} <i class="material-icons right">close</i></span>
 				<p>{{flat.flat_description}}</p>
 			</div>
 			<div class="card-content grey lighten-4">
@@ -107,7 +119,7 @@
 						 lf-center="{ lat: flat.lat, lng: flat.lng, zoom: 15 }" 
 						 width="100%" 
 						 height="240px"></leaflet>
-				<table class="bordered">
+				<!--<table class="bordered">
 					<tr>
 						<td><strong>Общая пл.:</strong> {{flat.total_area}} кв. м</td>
 						<td><strong>С/у:</strong> {{flat.wc}}</td>
@@ -119,11 +131,21 @@
 						<td><strong>Коридор:</strong> {{flat.lobby}} кв. м</td>
 						<td><strong>Этаж:</strong> {{flat.flat_floor}}</td>
 					</tr>
-				</table>
+				</table>-->
 			</div>
 		</div>
-	</div>    
+	</div> 
 </div>
+	<ul class="pagination">
+	    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+	    <li class="active"><a href="#!">1</a></li>
+	    <li class="waves-effect"><a href="#!">2</a></li>
+	    <li class="waves-effect"><a href="#!">3</a></li>
+	    <li class="waves-effect"><a href="#!">4</a></li>
+	    <li class="waves-effect"><a href="#!">5</a></li>
+	    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+  	</ul>  
+
 
 <div ui-view></div> 
  
@@ -242,9 +264,13 @@
 </footer>
 	
 	
-
 <script>
 $(document).ready(function() {
+
+	$('.slider').slider({
+		interval:0
+	});
+    
 	$(".button-collapse").sideNav();
 
 	$('#modal1').modal();

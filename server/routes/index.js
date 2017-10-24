@@ -17,7 +17,7 @@ router.get('/api/v1/flats', (req, res, next) => {
       console.log(err);
       return res.status(500).json({success: false, data: err});
     }
-    const query = client.query('SELECT * FROM flats ORDER BY flat_id ASC;');
+    const query = client.query('SELECT * FROM flats ORDER BY flat_id ASC LIMIT 5;');
     query.on('row', (row) => {
       results.push(row);
     });
