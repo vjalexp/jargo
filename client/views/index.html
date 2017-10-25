@@ -54,8 +54,8 @@
 					<img src="images/office.jpg">
 				</div>
 				<a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-				<a href="#!name"><span class="white-text name">Вася Пупкин</span></a>
-				<a href="#!email"><span class="white-text email">vasya@gmail.com</span></a>
+				<a href="#!name"><span class="white-text name">Тестовый Пользователь</span></a>
+				<a href="#!email"><span class="white-text email">test@test.ru</span></a>
 				</div>
 			</li>
 			<li><a href="#!"><i class="material-icons">person</i>Профиль</a></li>
@@ -91,19 +91,20 @@
  	<div class="col s12 m6 l4" ng-repeat="flat in flats | filter:sflats">
 		<div class="card">
 			<div class="card-image">
-				<div class="slider">
+				<img height="240" style="object-fit: cover" class="activator" ng-src="{{flat.flat_image | split:',':0}}">
+				<!--<div class="slider">
 					<ul class="slides">
 						<li>
-							<img height="240" style="object-fit: cover" class="activator" ng-src="{{flat.flat_image | split:',':0}}">
+							<img height="240" style="object-fit: cover" class="activator" src="{{flat.flat_image | split:',':0}}">
 						</li>
 						<li>
-							<img height="240" style="object-fit: cover" class="activator" ng-src="{{flat.flat_image | split:',':1}}">
+							<img height="240" style="object-fit: cover" class="activator" src="{{flat.flat_image | split:',':1}}">
 						</li>
 						<li>
-							<img height="240" style="object-fit: cover" class="activator" ng-src="{{flat.flat_image | split:',':2}}">
+							<img height="240" style="object-fit: cover" class="activator" src="{{flat.flat_image | split:',':2}}">
 						</li>
 					</ul>
-				</div>
+				</div>-->
 				<a class="modal-trigger btn-floating btn-large halfway-fab waves-effect waves-light red tooltipped" data-position="bottom" data-delay="50" data-tooltip="Написать письмо" href="#modal1"><i class="material-icons">mail</i></a>
 			</div>
 			<div class="card-content">
@@ -135,23 +136,26 @@
 			</div>
 		</div>
 	</div> 
-    <ul ng-if="pager.pages.length" class="pagination">
-	    <li ng-class="{disabled:pager.currentPage === 1}">
-	        <a ng-click="setPage(1)"><i class="material-icons">first_page</i></a>
-	    </li>
-	    <li ng-class="{disabled:pager.currentPage === 1}">
-	        <a ng-click="setPage(pager.currentPage - 1)"><i class="material-icons">chevron_left</i></a>
-	    </li>
-	    <li class="waves-effect" ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
-	        <a ng-click="setPage(page)">{{page}}</a>
-	    </li>               
-	    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-	        <a ng-click="setPage(pager.currentPage + 1)"><i class="material-icons">chevron_right</i></a>
-	    </li>
-	    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
-	        <a ng-click="setPage(pager.totalPages)"><i class="material-icons">last_page</i></a>
-	    </li>
-	</ul>
+  	<div class="center-align" style="clear:both">
+		<ul ng-if="pager.pages.length" class="pagination">
+		    <li ng-class="{disabled:pager.currentPage === 1}">
+		        <a ng-click="setPage(1)"><i class="material-icons">first_page</i></a>
+		    </li>
+		    <li ng-class="{disabled:pager.currentPage === 1}">
+		        <a ng-click="setPage(pager.currentPage - 1)"><i class="material-icons">chevron_left</i></a>
+		    </li>
+		    <li class="waves-effect" ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}">
+		        <a ng-click="setPage(page)">{{page}}</a>
+		    </li>               
+		    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+		        <a ng-click="setPage(pager.currentPage + 1)"><i class="material-icons">chevron_right</i></a>
+		    </li>
+		    <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
+		        <a ng-click="setPage(pager.totalPages)"><i class="material-icons">last_page</i></a>
+		    </li>
+		</ul>
+  	</div>
+    
 </div>
 
 
@@ -274,10 +278,9 @@
 	
 <script>
 $(document).ready(function() {
-
 	$('.slider').slider({
-		interval:1000000
-	});
+			interval:1000000
+		});
     
 	$(".button-collapse").sideNav();
 
@@ -286,8 +289,9 @@ $(document).ready(function() {
 	$('.tooltipped').tooltip({delay: 50});
 	
 	setTimeout(function() {
+		
 		$('ul.tabs').tabs();
-	}, 100);
+	}, 1000);
 	
 	$('.datepicker').pickadate({
 		selectMonths: true, 

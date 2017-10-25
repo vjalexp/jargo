@@ -6,8 +6,8 @@ jargoApp.factory('PagerService', function() {
           // default to first page
           currentPage = currentPage || 1;
    
-          // default page size is 12
-          pageSize = pageSize || 12;
+          // default page size is 24
+          pageSize = pageSize || 24;
    
           // calculate total pages
           var totalPages = Math.ceil(totalItems / pageSize);
