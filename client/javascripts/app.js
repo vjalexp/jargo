@@ -1,5 +1,67 @@
 var jargoApp = angular.module('jargoApp', ['ui.router', 'ui.materialize', 'leaflet-directive']);
 
+jargoApp.factory('PagerService', function() {
+    return {
+        GetPager: function(totalItems, currentPage, pageSize) {
+          // default to first page
+          currentPage = currentPage || 1;
+   
+          // default page size is 12
+          pageSize = pageSize || 12;
+   
+          // calculate total pages
+          var totalPages = Math.ceil(totalItems / pageSize);
+   
+          var startPage, endPage;
+          if (totalPages <= 10) {
+              // less than 10 total pages so show all
+              startPage = 1;
+              endPage = totalPages;
+          } else {
+              // more than 10 total pages so calculate start and end pages
+              if (currentPage <= 6) {
+                  startPage = 1;
+                  endPage = 10;
+              } else if (currentPage + 4 >= totalPages) {
+                  startPage = totalPages - 9;
+                  endPage = totalPages;
+              } else {
+                  startPage = currentPage - 5;
+                  endPage = currentPage + 4;
+              }
+          }
+   
+          // calculate start and end item indexes
+          var startIndex = (currentPage - 1) * pageSize;
+          var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
+   
+          // create an array of pages to ng-repeat in the pager control
+          /*function range(start, count) {
+            return Array.apply(0, Array(count))
+              .map(function (element, index) { 
+                return index + start;  
+            });
+          }*/
+
+          var pages = Array.from(Array(startPage + endPage + 1), (_, i) => startPage + i);
+   
+          // return object with all pager properties required by the view
+          return {
+              totalItems: totalItems,
+              currentPage: currentPage,
+              pageSize: pageSize,
+              totalPages: totalPages,
+              startPage: startPage,
+              endPage: endPage,
+              startIndex: startIndex,
+              endIndex: endIndex,
+              pages: pages
+          };
+            
+        }
+    }
+});
+
 jargoApp.filter('split', function() {
     return function(input, splitChar, splitIndex) {
         // do some bounds checking here to ensure it has that index
@@ -31,15 +93,15 @@ jargoApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 jargoApp.controller('ListController', function ($scope) {
-
 	$scope.select = {
 		value: "Option1",
 		choices: ["Общая площадь: 26,47 кв. м", "с/у: совм.", "коридор: 3,29 кв.м", "балкон: 6,22 кв.м"]
 	}
 });
 
+jargoApp.controller('FlatsController', ($scope, $location, $http, PagerService) => {
+  PagerService.GetPager();
 
-jargoApp.controller('FlatsController', ($scope, $location, $http) => {
   $http.get('/api/v1/flats')
   .success((data) => {
     $scope.flatsList = data;
@@ -54,8 +116,32 @@ jargoApp.controller('FlatsController', ($scope, $location, $http) => {
 				autoDiscover: true
 			}
 		};
-		
+
 		angular.extend($scope, $scope.map);
+
+    $scope.pager = {};
+    $scope.setPage = setPage;
+ 
+    initController();
+ 
+    function initController() {
+      // initialize to page 1
+      $scope.setPage(1);
+    }
+ 
+    function setPage(page) {
+    
+      if (page < 1 || page > $scope.pager.totalPages) {
+        return;
+      } 
+
+      // get pager object from service
+      $scope.pager = PagerService.GetPager($scope.flatsList.length, page);
+
+      // get current page of items
+      $scope.flats = $scope.flatsList.slice($scope.pager.startIndex, $scope.pager.endIndex + 1);
+    }
+
   })
   .error((error) => {
     console.log('Error: ' + error);
@@ -143,3 +229,4 @@ jargoApp.controller('mainController', ($scope, $http) => {
     });
   };
 });
+
